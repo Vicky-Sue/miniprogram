@@ -1,7 +1,7 @@
 <!--pages/index/index.wxml-->
 <SearchInput></SearchInput>
 
-<!-- 轮播图开始 -->
+<!-- 轮播图 开始 -->
 <!-- 原图的宽度  / 原图的高度 = 变化后的图片的宽度 / 变化后的图片的高度？？
   750px /  340px = 750rpx / height?
   height: 340rpx; -->
@@ -14,5 +14,5 @@
         </swiper-item>
     </swiper>
 </view>
-<!-- 轮播图结束 -->
+<!-- 轮播图 结束 -->
   

@@ -1,4 +1,6 @@
-// pages/index/index.js
+// 引入封装好的接口代码
+import { request } from "../../request/index.js"
+
 Page({
 
   /**
@@ -15,17 +17,16 @@ Page({
     this.getSwiperList();
   },
   // 获取轮播图数据
-  getSwiperList(){
-    var reqTask = wx.request({
-      url: 'https://api.zbztb.cn/api/public/v1/home/swiperdata',
-      success: (result) => {
+  getSwiperList() {
+    request({url: '/home/swiperdata'})
+    .then(result=>{
         console.log(result)
         this.setData({
-          swiperList:result.data.message
+          swiperList: result
         })
-      },
-    });
-      
+    })
+
+
   }
 
 })
