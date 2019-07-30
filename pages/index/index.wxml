@@ -16,3 +16,10 @@
 </view>
 <!-- 轮播图 结束 -->
   
+<!-- 首页导航 开始 -->
+<view class="index_cate">
+    <navigator wx:for="{{navCateList}}" wx:key="name">
+        <image mode="widthFix" src="{{item.image_src}}"></image>
+    </navigator>
+</view>
+<!-- 首页导航 结束 -->
