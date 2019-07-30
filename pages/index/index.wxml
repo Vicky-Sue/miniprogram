@@ -15,7 +15,7 @@
     </swiper>
 </view>
 <!-- 轮播图 结束 -->
-  
+
 <!-- 首页导航 开始 -->
 <view class="index_cate">
     <navigator wx:for="{{navCateList}}" wx:key="name">
@@ -23,3 +23,19 @@
     </navigator>
 </view>
 <!-- 首页导航 结束 -->
+
+<!-- 首页楼层信息 开始 -->
+<view class="index_floor">
+    <view class="floor_item" wx:for="{{floorList}}" wx:for-item="item1" wx:for-index="index1" wx:key="name">
+        <view class="floor_title">
+            <image mode="widthFix" src="{{item1.floor_title.image_src}}"></image>
+        </view>
+        <view class="floor_list">
+            <navigator class="floor_image" wx:for="{{item1.product_list}}" wx:for-item="item2" wx:for-index="index2"
+                wx:key="name">
+                <image mode="{{index2===0?'widthFix':'scaleToFill'}}" src="{{item2.image_src}}"></image>
+            </navigator>
+        </view>
+    </view>
+</view>
+<!-- 首页楼层信息 结束 -->
