@@ -51,7 +51,7 @@ Page({
         console.log(result)
         this.totalPages = Math.ceil(result.total / this.queryParams.pagesize)
         this.setData({
-          // 拼接商品上拉数据
+          // 拼接商品下拉数据
           goodsList: [...this.data.goodsList, ...result.goods]
         })
         wx.stopPullDownRefresh();
