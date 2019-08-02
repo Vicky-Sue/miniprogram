@@ -1,3 +1,27 @@
 <!--pages/goods_list/goods_list.wxml-->
 <SearchInput></SearchInput>
-<Tabs chilTabs="{{tabs}}" binditemChange="handleItemChange"></Tabs>
+<Tabs chilTabs="{{tabs}}" binditemChange="handleItemChange">
+    <!-- 综合 -->
+    <block wx:if="{{tabs[0].isActive}}">
+        <view class="first_tab">
+            <view class="goods_group" wx:for="{{goodsList}}" wx:key="goods_id">
+                <!-- 左侧图片 -->
+                <view class="goods_img_wrap">
+                    <image class="goods_img" mode="widthFix" src="{{item.goods_small_logo}}"></image>
+                </view>
+                <!-- 右边商品 -->
+                <view class="goods_des_wrap">
+                    <view class="goods_title">{{item.goods_name}}</view>
+                    <view class="goods_price">￥{{item.goods_price}}</view>
+                </view>
+            </view>
+
+        </view>
+    </block>
+
+    <!-- 销量 -->
+    <block wx:if="{{tabs[1].isActive}}">正在开发中...</block>
+    <!-- 价格 -->
+    <block wx:if="{{tabs[2].isActive}}">正在开发中...</block>
+
+</Tabs>
