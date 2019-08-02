@@ -1,5 +1,6 @@
 // pages/goods_list/goods_list.js
 import { request } from "../../request/index.js"
+import regeneratorRuntime from '../../lib/runtime/runtime';
 
 Page({
 
@@ -44,18 +45,15 @@ Page({
     })
   },
   // 获取商品列表搜索数据
-  getGoodsList() {
-    request({ url: '/goods/search', data: this.queryParams })
-      .then(result => {
-        // 计算总页数
-        console.log(result)
-        this.totalPages = Math.ceil(result.total / this.queryParams.pagesize)
-        this.setData({
-          // 拼接商品下拉数据
-          goodsList: [...this.data.goodsList, ...result.goods]
-        })
-        wx.stopPullDownRefresh();
-      })
+  async getGoodsList() {
+    const result = await request({ url: '/goods/search', data: this.queryParams })
+    // 计算总页数
+    this.totalPages = Math.ceil(result.total / this.queryParams.pagesize)
+    this.setData({
+      // 拼接商品下拉数据
+      goodsList: [...this.data.goodsList, ...result.goods]
+    })
+    wx.stopPullDownRefresh();
   },
   //监听用户上拉触底事件
   onReachBottom() {

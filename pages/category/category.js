@@ -1,5 +1,7 @@
 // pages/category/category.js
 import { request } from "../../request/index.js"
+import regeneratorRuntime from '../../lib/runtime/runtime';
+
 Page({
 
   /**
@@ -25,7 +27,7 @@ Page({
   onLoad: function (options) {
     // 1 获取缓存的数据 用来判断有没有缓存数据
     const category = wx.getStorageSync("category");
-    console.log(category,'wx.getStorageSync')
+    console.log(category, 'wx.getStorageSync')
     // 2 判断有没有缓存数据
     if (!category) {
       // 没有数据 1 发送请求 2 存入到缓存 
@@ -54,23 +56,22 @@ Page({
     }
   },
   // 获取分类数据
-  getCategories() {
-    request({ url: "/categories" })
-      .then(result => {
-        // console.log(result)
-        // 把接口数据赋值给全局变量
-        this.cates = result;
-        // 把数据存入到缓存中
-        wx.setStorageSync("category", { time: Date.now(), data: this.cates })
-        // 左侧菜单要的数据
-        const leftMenuList = this.cates.map(v => ({ cat_id: v.cat_id, cat_name: v.cat_name }))
-        // 右侧大家店的数据
-        const rightGoodsList = this.cates[0].children;
-        this.setData({
-          leftMenuList,
-          rightGoodsList
-        })
-      })
+  async getCategories() {
+    const result = await request({ url: "/categories" })
+    // console.log(result)
+    // 把接口数据赋值给全局变量
+    this.cates = result;
+    // 把数据存入到缓存中
+    wx.setStorageSync("category", { time: Date.now(), data: this.cates })
+    // 左侧菜单要的数据
+    const leftMenuList = this.cates.map(v => ({ cat_id: v.cat_id, cat_name: v.cat_name }))
+    // 右侧大家店的数据
+    const rightGoodsList = this.cates[0].children;
+    this.setData({
+      leftMenuList,
+      rightGoodsList
+    })
+
   },
   handleMenuChange(e) {
     // console.log(e)
