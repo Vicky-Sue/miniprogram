@@ -1,7 +1,7 @@
 .first_tab .goods_group {
   display: flex;
   border-bottom: 1rpx solid #ccc;
-  height: 250rpx;
+  height: 200rpx;
 }
 .first_tab .goods_group .goods_img_wrap {
   flex: 1;
