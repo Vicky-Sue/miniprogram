@@ -4,7 +4,8 @@
     <!-- 综合 -->
     <block wx:if="{{tabs[0].isActive}}">
         <view class="first_tab">
-            <view class="goods_group" wx:for="{{goodsList}}" wx:key="goods_id">
+            <navigator class="goods_group" wx:for="{{goodsList}}" wx:key="goods_id"
+            url="/pages/goods-detail/goods-detail?goods_id={{item.goods_id}}">
                 <!-- 左侧图片 -->
                 <view class="goods_img_wrap">
                     <image class="goods_img" mode="widthFix" src="{{item.goods_small_logo||'https://tva2.sinaimg.cn/large/007DFXDhgy1g5lh9imq1jj30dw0af3yj.jpg'}}"></image>
@@ -14,7 +15,7 @@
                     <view class="goods_title">{{item.goods_name}}</view>
                     <view class="goods_price">￥{{item.goods_price}}</view>
                 </view>
-            </view>
+            </navigator>
 
         </view>
     </block>
