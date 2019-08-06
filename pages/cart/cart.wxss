@@ -1,1 +1,22 @@
-/* pages/cart/cart.wxss */
+.revice_wrap .revice_btn_wrap {
+  padding: 20rpx 0;
+}
+.revice_wrap .revice_btn_wrap button {
+  width: 80%;
+}
+.revice_wrap .revice_btn_wrap .receiverInfo {
+  padding: 0 20rpx 20rpx 20rpx;
+  border-bottom: 1px solid var(--themeColor);
+}
+.revice_wrap .revice_btn_wrap .receiverInfo .receiver {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.cart_list .cart_title {
+  padding: 0 20rpx 20rpx 20rpx;
+  font-size: 36rpx;
+  font-weight: 600;
+  color: var(--themeColor);
+  border-bottom: 1px solid var(--themeColor);
+}

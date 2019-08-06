@@ -63,7 +63,8 @@ Page({
     // 把接口数据赋值给全局变量
     this.cates = result;
     // 把数据存入到缓存中
-    let category= setStorageCate({ time: Date.now(), data: this.cates })
+    setStorageCate({ time: Date.now(), data: this.cates })
+    const category = getStorageCate();
     console.log(category, 'setStorageCate');
 
     // 左侧菜单要的数据
