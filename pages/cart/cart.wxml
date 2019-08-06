@@ -2,14 +2,14 @@
   <!-- 收货按钮地址 部分 -->
   <view class="revice_btn_wrap">
     <!-- 添加收货地址按钮 -->
-    <button wx:if="{{!goodsAddress}}" bindtap="handleChooseAddress" plain type="primary">添加收货地址</button>
+    <button wx:if="{{!address.all}}" bindtap="handleChooseAddress" plain type="primary">添加收货地址</button>
     <!-- 收货人信息 -->
     <view wx:else class="receiverInfo">
       <view class="receiver">
-        <view class="receiverPeople">收货人：{{receiver}}</view>
-        <view class="receTelNumber">{{receTelNumber}}</view>
+        <view class="receiverPeople">收货人：{{address.userName}}</view>
+        <view class="receTelNumber">{{address.telNumber}}</view>
       </view>
-      <view class="goodsAddress">{{goodsAddress}}</view>
+      <view class="goodsAddress">{{address.all}}</view>
     </view> 
   </view>
   <!-- 购物车列表 部分 -->

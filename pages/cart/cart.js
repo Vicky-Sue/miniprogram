@@ -1,3 +1,6 @@
+import { getSetting, openSetting, chooseAddress } from '../../utils/aysncWx.js'
+import regeneratorRuntime from '../../lib/runtime/runtime';
+import {setStorageAddress,getStorageAddress} from '../../utils/storage.js'
 // 1 给 收货地址按钮 添加点击事件 
 //   1 调用微信小程序自带 获取收货地址的api   wx.chooseAddress
 //   2 正常流程
@@ -19,55 +22,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-      // 收获地址
-      goodsAddress:'',
-      // 收货人名
-      receiver:'',
-      // 收货人电话
-      receTelNumber:''
+    // 收获地址
+    address:{}
   },
   onLoad(options) {
 
   },
   // 添加收货地址
-  handleChooseAddress() {
-    wx.getSetting({
-      success: (result1) => {
-        console.log(result1,'result1')
-        const scopeAddress=result1.authSetting['scope.address'];
-        // 判断用户的授权状态
-        if(scopeAddress===true || scopeAddress===undefined){
-          // 直接获取用户的收获地址
-          wx.chooseAddress({
-            success: (result2) => {
-              console.log(result2,'result2'); 
-              const goodsAddress= result2.provinceName+result2.cityName+result2.countyName+result2.detailInfo;
-              const receiver = result2.userName;
-              const receTelNumber = result2.telNumber;
-              this.setData({ goodsAddress, receiver, receTelNumber })
-              console.log(goodsAddress,receiver,receTelNumber);
-            },
-          });       
-        }else{
-          // 诱导客户打开授权页面
-          wx.openSetting({
-            success: (result3) => {
-              console.log(result3,'result3')
-              wx.chooseAddress({
-                success: (result4) => {
-                  console.log(result4,'result4'); 
-                  const goodsAddress= result2.provinceName+result2.cityName+result2.countyName+result2.detailInfo;
-                  const receiver = result2.userName;
-                  const receTelNumber = result2.telNumber;
-                  this.setData({ goodsAddress, receiver, receTelNumber })
-                },
-              });                
-            },
-          });  
-        }
-        
-       },
-    });
-  }
+  async handleChooseAddress() {
+    const res1 = await getSetting()
+    const scopeAddress = res1.authSetting['scope.address'];
+    // 判断用户的授权状态
+    if (scopeAddress === true || scopeAddress === undefined) {
+      // 获取用户的收货地址
+    } else {
+      // 诱导客户打开授权页面
+      await openSetting();
+      // 获取用户的收货地址
+    }
+    const addressObj= await chooseAddress();
+    addressObj.all=addressObj.provinceName + addressObj.cityName + addressObj.countyName + addressObj.detailInfo;
+    setStorageAddress(addressObj)
 
+  },
+  onShow(){
+    console.log(getStorageAddress())
+    this.setData({ address:getStorageAddress()||{} })
+  }
 })
