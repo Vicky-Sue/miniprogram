@@ -15,6 +15,33 @@
   <!-- 购物车列表 部分 -->
   <view class="cart_list">
     <view class="cart_title">购物车</view>
-    <view class="cart_goodsList">1</view>
+    <!-- 商品列表 -->
+    <block wx:if="{{true}}">
+      <view class="cart_group">
+        <checkbox-group class="cart_checkbox">
+          <checkbox></checkbox>
+        </checkbox-group>
+        <view class="cart_goods_img">
+          <image mode="widthFix" src="http://image5.suning.cn/uimg/b2c/newcatentries/0000000000-000000000193373779_1_400x400.jpg"></image>
+        </view>
+        <view class="cart_goods_info">
+          <view class="cart_goods_title">海信(Hisense)LED50MU8600UC 50英寸 4K超高清智能电视 HDR超薄曲面</view>
+          <view class="cart_goods_prices">
+              <view class="cart_goods_price">￥6099</view>
+              <view class="cart_goods_num_wrap">
+                <text class="num_change">-</text>
+                <text class="cart_num">10</text>
+                <text class="num_change">+</text>
+              </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <!-- 无商品-提示用户添加商品 -->
+    <block wx:else>
+      <view class="cart_img_wrap">
+        <image mode="widthFix" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564833064883&di=751ab54dae1a6e0f71780fe3ebc935f7&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fe1b1467beea0a9c7d6a56b32bac6d7e5dcd914f7c3e6-YTwUd6_fw658"></image>
+      </view>
+    </block>
   </view>
 </view>
