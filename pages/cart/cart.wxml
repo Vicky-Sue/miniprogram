@@ -17,13 +17,17 @@
     <view class="cart_title">购物车</view>
     <!-- 商品列表 -->
     <block wx:if="{{true}}">
+      <!-- 商品项 -->
       <view class="cart_group">
+        <!-- 复选框 -->
         <checkbox-group class="cart_checkbox">
           <checkbox></checkbox>
         </checkbox-group>
+        <!-- 商品图片 -->
         <view class="cart_goods_img">
           <image mode="widthFix" src="http://image5.suning.cn/uimg/b2c/newcatentries/0000000000-000000000193373779_1_400x400.jpg"></image>
         </view>
+        <!-- 商品信息 -->
         <view class="cart_goods_info">
           <view class="cart_goods_title">海信(Hisense)LED50MU8600UC 50英寸 4K超高清智能电视 HDR超薄曲面</view>
           <view class="cart_goods_prices">
@@ -43,5 +47,22 @@
         <image mode="widthFix" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564833064883&di=751ab54dae1a6e0f71780fe3ebc935f7&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fe1b1467beea0a9c7d6a56b32bac6d7e5dcd914f7c3e6-YTwUd6_fw658"></image>
       </view>
     </block>
+    <!-- 底部 全选 价格核算 -->
+    <view class="cart_price_check">
+      <!-- 全选复选框 -->
+      <checkbox-group class="cart_price_allCheck_wrap">
+        <checkbox class="cart_price_allCheck">全选</checkbox>
+      </checkbox-group>
+      <!-- 价格 -->
+      <view class="cart_price_amount_wrap">
+        <view class="cart_price_amount">合计:<text>￥6099</text></view>
+        <text class="cart_price_tips">已包含运费</text>
+      </view>
+      <!-- 结算 -->
+      <button class="cart_price_pay">
+        结算(1)
+      </button>
+    </view>
+      
   </view>
 </view>

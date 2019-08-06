@@ -75,3 +75,40 @@
   text-align: center;
   line-height: 42rpx;
 }
+.cart_price_check {
+  font-size: 30rpx;
+  color: #666;
+  border-top: 1rpx solid #ccc;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 90rpx;
+  background-color: #fff;
+  display: flex;
+}
+.cart_price_check .cart_price_allCheck_wrap {
+  padding-left: 20rpx;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart_price_check .cart_price_amount_wrap {
+  flex: 3;
+  text-align: right;
+  margin-right: 20rpx;
+}
+.cart_price_check .cart_price_amount_wrap .cart_price_amount text {
+  font-size: 34rpx;
+  margin-left: 8rpx;
+  font-weight: 600;
+  color: var(--themeColor);
+}
+.cart_price_check .cart_price_pay {
+  flex: 1;
+  font-weight: 600;
+  font-size: 36rpx;
+  color: #fff;
+  background-color: var(--themeColor);
+}
